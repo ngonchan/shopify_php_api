@@ -102,11 +102,10 @@
 			}
 		}
 
-    $xml = arrayToXML($xml);
-    if (isEmpty($xml)) $xml = false;
+    $xml = (sizeof($xml) > 0) ? arrayToXML($xml) : false;
 		$ch = new miniCURL();
 		$data = $ch->send($url, $request, $xml);
-		return $ch->loadString($data);
+	  return $ch->loadString($data);
 	}
 	
 	function gzdecode($data){

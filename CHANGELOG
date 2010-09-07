@@ -1,5 +1,8 @@
 CHANGELOG
 
+September 7th, 2010
+  - Fixed a bug with cancelling recurring application charges. (thanks meeech!)
+
 August 12th, 2010
   - Fixed a typo in Event::get
 
