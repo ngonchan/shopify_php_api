@@ -19,7 +19,8 @@
 	  return array(
   	  'variants' => 'variant',
   	  'images' => 'image',
-  	  'options' => 'option'
+  	  'options' => 'option',
+  	  'line-items' => 'line-item'
   	);
 	}
 	

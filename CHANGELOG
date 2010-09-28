@@ -1,5 +1,9 @@
 CHANGELOG
 
+September 28th, 2010
+  - Added line-item as a special case xml tag
+  -
+
 September 7th, 2010
   - Fixed a bug with cancelling recurring application charges. (thanks meeech!)
 
