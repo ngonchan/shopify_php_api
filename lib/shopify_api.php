@@ -2,8 +2,8 @@
 /*
 	Shopify API in PHP
 	Created: May 4th, 2010
-	Modified: August 4th, 2010
-	Version: 1.20100804.1
+	Modified: October 8th, 2010
+	Version: 1.20101008.1
 */
 
   include('shopify_api_config.php');
@@ -58,7 +58,7 @@
 			$array[$type][$id] = $temp;
 		}else{
 			foreach($array[$type] as $k => $v){
-				$id = $v['id'];
+		    $id = (isset($v['key'])) ? $v['key'] : $v['id'];
 				$array[$type][$id] = $v;
 				unset($array[$type][$k]);
 			}
