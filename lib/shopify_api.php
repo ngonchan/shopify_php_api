@@ -3,7 +3,7 @@
 	Shopify API in PHP
 	Created: May 4th, 2010
 	Modified: October 8th, 2010
-	Version: 1.20101008.1
+	Version: 1.20101008.2
 */
 
   include('shopify_api_config.php');
@@ -653,22 +653,32 @@
 			$this->object = $object;
 		}
 		
-		public function get($id = 0, $params = array(), $cache = false){
-			$params = url_encode_array($params);
-			if ($id == 0 && isEmpty($this->object)){
-				if (!$cache || !isset($this->array['metafield'])) $this->array = organizeArray(sendToAPI($this->prefix . "metafields?" . $params, 'GET'), 'metafield');
-				return $this->array['metafield'];
-			}else{
-				if ($id == 0) throw new Exception("Must provide an object id");
-				if (!$cache || !isset($this->array['metafield'][$id])){
-					$temp = sendToAPI($this->prefix . $id . "/metafields");
-					$this->array['metafield'][$temp['metafield']['id']] = $temp['metafield'];
-				}
-				
-				return $this->array['metafield'][$temp['metafield']['id']];
-			}
+		public function get($metafield_id = 0, $id = 0, $params = array(), $cache = false){
+		  $params = url_encode_array($params);
+		  
+		  if ($id == 0){
+		    if ($metafield_id == 0){
+		      $this->array = organizeArray(sendToAPI($this->prefix . "metafields?" . $params, 'GET'), 'metafield');
+		    }else{
+		      $temp = sendToAPI($this->prefix . "metafields/" . $id . ".xml?" . $params);
+		      $this->array['metafield'][$metafield_id] = $temp;
+		      return $this->array['metafield'][$metafield_id];
+		    }
+		  }else{
+		    if (isEmpty($this->object)){
+		      throw new Exception("Must provide an object id");		      
+		    }else{
+		      if ($metafield_id == 0){
+					  $this->array = organizeArray(sendToAPI($this->prefix . $id . "/metafields?" . $params, 'GET'), 'metafield');
+		      }else{
+            $temp = sendToAPI($this->prefix . $id . "/metafields/" . $metafield_id . ".xml?" . $params, 'GET');
+				  }
+		    }
+		  }
+		  
+			return $this->array['metafield'];
 		}
-		
+				
 		public function create($object_id, $fields){
 			$fields = array('metafield' => $fields);
 			return ($object_id > 0) ? sendToAPI($this->prefix . $object_id . "/metafields", 'POST', $fields) : sendToAPI($this->prefix . "metafields", 'POST', $fields);

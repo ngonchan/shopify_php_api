@@ -2,6 +2,7 @@ CHANGELOG
 
 October 8th, 2010
   - Fixed organizeArray for assets by adding key as the index if it exists
+  - Fixed metafield::get
 
 September 28th, 2010
   - Added line-item as a special case xml tag
