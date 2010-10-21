@@ -17,7 +17,8 @@ Upload the shopify_php_api to your webserver. Modify lib/shopify_api_config.php 
 
 ## TESTING
 
-You can then access it by going to http://www.yourdomain.com/shopify_php_api/test/index.php
+You can test the API by going to http://www.yourdomain.com/shopify_php_api/test/shopify_api_test.php
+If you would like to test your application you can create tests using the SimpleTest library that is provided.
 
 ## BASIC USAGE
 
