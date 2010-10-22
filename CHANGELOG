@@ -1,5 +1,12 @@
 CHANGELOG
 
+October 22nd, 2010
+  - Added the default theme for Shopify Apps
+  - Created login.php to handle authentication
+  - Created logout.php
+  - Added Asset::create for the sake of CRUD
+  - Removed RTF document of documentation and added phpDocumentor output for documentation
+
 October 8th, 2010
   - Fixed organizeArray for assets by adding key as the index if it exists
   - Fixed metafield::get

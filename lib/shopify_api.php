@@ -2,8 +2,8 @@
 /*
 	Shopify API in PHP
 	Created: May 4th, 2010
-	Modified: October 8th, 2010
-	Version: 1.20101008.2
+	Modified: October 22nd, 2010
+	Version: 1.20101022.1
 */
 
   include('shopify_api_config.php');
@@ -269,6 +269,10 @@
 				return $this->array['asset'][$key];
 			}
 		}
+		
+		public function create($fields){
+		  return modify($fields);
+		}
 			
 		public function modify($fields){
 			$fields = array('asset' => $fields);
@@ -276,8 +280,7 @@
 		}
 		
 		public function copy($fields){
-			$fields = array('asset' => $fields);
-			return sendToAPI($this->prefix, 'PUT', $fields);			
+			return modify($fields);
 		}
 		
 		public function remove($key){

@@ -9,7 +9,7 @@ It has all the bells and whistles of its Ruby counterpart to help you create gre
 
 ## DOCUMENTATION
 
-PHP_Shopify_API_Documentation.rtf has all the documentation on the API.
+You can look at documentation by opening index.html in the docs directory.
 
 ## INSTALL
 
