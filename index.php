@@ -4,8 +4,8 @@
   session_start();  
 	include('lib/shopify_api.php');
 		
-  if (!isset($_SESSION['url']) || !isset($_SESSION['token'])) header("Location: login.php");
-  $url = $_SESSION['url'];
+  if (!isset($_SESSION['shop']) || !isset($_SESSION['token'])) header("Location: login.php");
+  $url = $_SESSION['shop'];
   $token = $_SESSION['token'];
 	$api = new Session($url, $token, API_KEY, SECRET);
 	
