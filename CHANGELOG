@@ -1,5 +1,8 @@
 CHANGELOG
 
+October 29th, 2010
+  - Moved session setting from login.php to index.php because old versions of PHP have issues with header redirects after starting sessions
+
 October 22nd, 2010
   - Added the default theme for Shopify Apps
   - Created login.php to handle authentication

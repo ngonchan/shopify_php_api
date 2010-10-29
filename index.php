@@ -3,6 +3,11 @@
   session_id();
   session_start();  
 	include('lib/shopify_api.php');
+	
+	if (isset($_GET['shop']) && isset($_GET['token'])){
+	  $_SESSION['url'] = $_GET['shop'];
+	  $_SESSION['token'] = $_GET['token'];
+	}
 		
   if (!isset($_SESSION['url']) || !isset($_SESSION['token'])) header("Location: login.php");
   $url = $_SESSION['url'];

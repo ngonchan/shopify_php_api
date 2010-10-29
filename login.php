@@ -7,10 +7,6 @@
     Step 3: Once the application is installed and verified and no errors are returned set session params and redirect to index
   */
 
-  /* Sessions */
-  session_id();
-  session_start();
-  
 	include('lib/shopify_api.php');
 		
 	/* GET VARIABLES */
@@ -26,9 +22,7 @@
 		  $shop = $api->shop->get();
 		  
 		  if (!isset($shop['error'])){
-		    $_SESSION['shop'] = $url;
-		    $_SESSION['token'] = $token;
-		    header("Location: /index.php");
+		    header("Location: /index.php?shop=$url&token=$token");
 		  }
 		}
 	}else{
