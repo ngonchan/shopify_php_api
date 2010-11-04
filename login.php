@@ -28,7 +28,7 @@
 		  if (!isset($shop['error'])){
 		    $_SESSION['shop'] = $url;
 		    $_SESSION['token'] = $token;
-		    header("Location: /index.php");
+		    header("Location: index.php");
 		  }
 		}
 	}else{
